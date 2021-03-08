@@ -1,0 +1,17 @@
+    language: node_js
+    node_js:
+      -15
+    cache:
+    directories:
+      -node_modules
+  # This is our pipeline
+    script:
+      -npm test
+      -npm rum author
+    before deploy:
+      -npm build
+    deploy:
+    provider: script
+    script: echo "Add deployment command"
+    on:
+    bracnch: main
